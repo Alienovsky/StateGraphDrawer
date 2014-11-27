@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<States>
+    <State name="Quote Requested">
+        <Transition action="Price" state="Pricing Done"/>
+    </State>
+    <State name="Pricing Done">
+        <Transition action="Approve" state="Client Agreed"/>
+    </State>
+
+    <State name="Deal Amended (Booking pending)">
+        <DynamicTransition action="Book">
+            <TargetStates>
+                <StaticState state="Deal Booked">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+                <StaticState state="Deal Booked STH pending">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+                <StaticState state="Deal Booked Manual STH pending">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+                <StaticState state="Deal Fully Booked">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+            </TargetStates>
+        </DynamicTransition>
+    </State>
+
+</States>

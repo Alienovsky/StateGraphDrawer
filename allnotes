@@ -1,0 +1,9 @@
+lis 10, 2014 6:45 PM (Added on Pn, 10 lis 2014 6:45 PM)
+-------------------------------------------------------------------
+What to do:
+- state has many transitions
+- basestates
+- states added after state with dynamic transitions 
+	is not added to general list from which 
+	graph is drown
+

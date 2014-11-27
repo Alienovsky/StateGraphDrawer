@@ -1,0 +1,112 @@
+[
+    {
+        "type": "suit",
+        "target": "Pricing Done",
+        "source": "Quote Requested"
+    },
+    {
+        "type": "suit",
+        "target": "Client Agreed",
+        "source": "Pricing Done"
+    },
+    {
+        "type": "suit",
+        "target": "Deal Amended",
+        "source": "Pricing Done"
+    },
+    {
+        "type": "suit",
+        "target": "Client Agreed",
+        "source": "Deal Amended"
+    },
+    {
+        "type": "suit",
+        "target": "Deal Booked",
+        "source": "Client Agreed"
+    },
+    {
+        "type": "suit",
+        "target": "Client Agreed",
+        "source": "Pricing Done"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked Manual STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Fully Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked Manual STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Fully Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked Manual STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Fully Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Booked Manual STH pending",
+        "source": "Deal Amended (Booking pending)"
+    },
+    {
+        "type": "resolved",
+        "target": "Deal Fully Booked",
+        "source": "Deal Amended (Booking pending)"
+    }
+]
