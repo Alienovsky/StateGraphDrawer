@@ -13,7 +13,7 @@ class Starter {
         def myList = parser.parseGraphNodeXml(xml)
 
         String json = JsonOutput.toJson(myList);
-        println JsonOutput.prettyPrint(json);
+       // println JsonOutput.prettyPrint(json);
 
         try {
             FileWriter fileWriter = new FileWriter("/test.json");

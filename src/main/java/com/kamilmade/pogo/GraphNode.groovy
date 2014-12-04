@@ -7,4 +7,7 @@ class GraphNode {
     String source;
     String target;
     String type;
+    boolean isBaseState;
+    def BaseStates = [];
+
 }
