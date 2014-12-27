@@ -9,7 +9,6 @@ public class XMLStatesParser {
         println fileName
         return getClass().getResource( fileName ).text
     }
-
     List parseGraphNodeXml(xml){
         def graphNodeList = [];
         def states = new XmlParser().parseText(xml);

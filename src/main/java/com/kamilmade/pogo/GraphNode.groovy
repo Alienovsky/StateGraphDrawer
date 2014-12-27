@@ -10,4 +10,11 @@ class GraphNode {
     boolean isBaseState;
     def BaseStates = [];
 
+    public String toString(){
+        return "Source: " + source
+                + "Target: " + target
+                + "Type: " + type
+                + "IsBaseState: " + isBaseState
+    }
+
 }

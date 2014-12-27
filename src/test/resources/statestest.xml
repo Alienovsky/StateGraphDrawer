@@ -3,27 +3,13 @@
     <State name="Quote Requested">
         <Transition action="Price" state="Pricing Done"/>
     </State>
+    <BaseSate name="CancellableBaseState">
+        <Transition action="Cancel" state="Cancelled"/>
+    </BaseSate>
     <State name="Pricing Done">
-        <Transition action="Approve" state="Client Agreed"/>
+        <BaseStates>
+            <BaseState name="CancellableBaseState"/>
+        </BaseStates>
+        <Transition action="Approve" state="Deal Approved"/>
     </State>
-
-    <State name="Deal Amended (Booking pending)">
-        <DynamicTransition action="Book">
-            <TargetStates>
-                <StaticState state="Deal Booked">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked STH pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked Manual STH pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Fully Booked">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-            </TargetStates>
-        </DynamicTransition>
-    </State>
-
 </States>
