@@ -21,7 +21,7 @@ class XMLStatesParserTest extends Specification {
     }
 
     def "give list of states after parsing but 1st element on list should be quote requested state"(){
-        setup:
+        given:
         GraphNode expectedState = new GraphNode();
         expectedState.setIsBaseState(false)
         expectedState.setTarget("Pricing Done")
@@ -35,6 +35,7 @@ class XMLStatesParserTest extends Specification {
         then:
         myList!=null
         !myList.isEmpty()
+        printList(myList);
         Assert.notNull(actualState,"could not find actual base state")
         actualState.getSource().equals(expectedState.getSource())
         actualState.isBaseState.equals(expectedState.isBaseState)
@@ -43,7 +44,7 @@ class XMLStatesParserTest extends Specification {
     }
 
     def "give list with states and 2nd element on it should be basestate"(){
-        setup:
+        given:
         GraphNode expectedBaseState = new GraphNode();
         expectedBaseState.setIsBaseState(true)
         expectedBaseState.setTarget("Cancelled")
@@ -57,6 +58,7 @@ class XMLStatesParserTest extends Specification {
         then:
         myList!=null
         !myList.isEmpty()
+        printList(myList);
         Assert.notNull(actualBaseState,"could not find actual base state")
         actualBaseState.getSource().equals(expectedBaseState.getSource())
         actualBaseState.isBaseState.equals(expectedBaseState.isBaseState)
@@ -65,7 +67,7 @@ class XMLStatesParserTest extends Specification {
     }
 
     def "give list with states and 2nd element on it should be pricing done state with some basestates"(){
-        setup:
+        given:
         GraphNode expectedState = new GraphNode();
         expectedState.setIsBaseState(false)
         expectedState.setTarget("Deal Approved")
@@ -79,6 +81,7 @@ class XMLStatesParserTest extends Specification {
         then:
         myList!=null
         !myList.isEmpty()
+        printList(myList);
         Assert.notNull(actualBaseState,"could not find actual base state")
         actualBaseState.getSource().equals(expectedState.getSource())
         actualBaseState.isBaseState.equals(expectedState.isBaseState)
@@ -87,7 +90,7 @@ class XMLStatesParserTest extends Specification {
     }
 
     def "check if pricing done state has cancel action from cancellable base state"(){
-        setup:
+        given:
         GraphNode expectedState = new GraphNode();
         expectedState.setIsBaseState(false)
         expectedState.setTarget("Cancelled")
@@ -99,7 +102,10 @@ class XMLStatesParserTest extends Specification {
         GraphNode actualBaseState = findExpectedStateOnParsedStateList(myList, expectedState.getSource(), expectedState.getTarget());
 
         then:
-        Assert.notNull(actualBaseState,"could not find actual base state")
+        myList!=null
+        !myList.isEmpty()
+        printList(myList);
+        Assert.notNull(actualBaseState,"could not find node/state created from base state in actualBaseState value")
         actualBaseState.getSource().equals(expectedState.getSource())
         actualBaseState.isBaseState.equals(expectedState.isBaseState)
         actualBaseState.getTarget().equals(expectedState.getTarget())
@@ -108,6 +114,17 @@ class XMLStatesParserTest extends Specification {
 
     private GraphNode findExpectedStateOnParsedStateList(List<GraphNode> myList, String source, String target){
         return  myList.find{element -> ((GraphNode) element).getSource().equals(source) && ((GraphNode) element).getTarget().equals(target)}
+    }
+
+    private void printList(List<GraphNode> graphNodeList){
+        graphNodeList.each { node ->
+            println(
+                    node.getSource() + node.getBaseStates()
+                    +"\t--------->\t"
+                    + node.getTarget()
+            )
+        }
+        println("\n");
     }
 
 
