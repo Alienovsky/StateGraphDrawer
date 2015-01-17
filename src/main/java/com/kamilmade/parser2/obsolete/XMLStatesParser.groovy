@@ -4,13 +4,12 @@ import com.kamilmade.pogo.obsolete.GraphNode
 
 
 public class XMLStatesParser {
-    String readXML(String fileName) {
+   public String readXML(String fileName) {
         // Read the user info parser from the resource
-        println fileName
+        //println fileName
         return getClass().getResource( fileName ).text
     }
-
-    List parseGraphNodeXml(xml){
+    public List parseGraphNodeXml(xml){
         def graphNodeList = [];
         def states = new XmlParser().parseText(xml);
         states.State.each { state ->
@@ -25,7 +24,7 @@ public class XMLStatesParser {
                            graphNodeTemp.setSource(transition.parent().'@name')
                            graphNodeTemp.setTarget(staticState.'@state')
                            graphNodeTemp.setType("resolved")
-                           graphNodeListTemp.add(graphNodeTemp)  
+                           graphNodeListTemp.add(graphNodeTemp)
                        }
                     }
                     graphNodeList.addAll(graphNodeListTemp)
@@ -55,9 +54,19 @@ public class XMLStatesParser {
             }
             graphNodeList.add(graphNode)
         }
-        println(graphNodeList)
         return graphNodeList;
     }
+
+    public List<GraphNode> checkAllNodesAndGenerateProperStatesFromTheirBaseStates(List<GraphNode> graphNodeList){
+        def filteredList;
+        graphNodeList.each{ node ->
+            if(node.BaseStates.isEmpty){
+
+            }
+        }
+    }
+
+
 
 
 /*    String converToJson(obj){

@@ -1,99 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <States>
-
-   <!-- <BaseState name="Quoting Base State">
-        <Transition action="Cancel" state="Cancelled"/>
-    </BaseState>-->
-
-<!--
-    <State name="Quote Requested">
-        <Transition action="Price" state="Pricing Done"/>
-    </State>
-    <State name="Pricing Done">
-        <Transition action="Approve" state="Client Agreed"/>
-    </State>
-    <State name="Pricing Done">
-        <Transition action="Amend" state="Deal Amended"/>
-    </State>
-    <State name="Deal Amended">
-        <Transition action="Approve amend" state="Client Agreed"/>
-    </State>
-    <State name="Client Agreed">
-        <Transition action="Book" state="Deal Booked"/>
-    </State>
-    <State name="Pricing Done">
-        <Transition action="Approve" state="Client Agreed"/>
-    </State>
-    <State name="Deal Booked STH pending">
-        <Transition action="Approve" state="Somewhere"/>
-    </State>
-    <State name="Deal Booked Manual STH pending">
-        <Transition action="Approve" state="Somewhere"/>
-    </State>
-
-    <State name="Deal Fully Booked">
-        <Transition action="Approve" state="End State"/>
-    </State>
-
-    <State name="Deal Booked">
-        <Transition action="Amend" state="Deal Amended (Booking pending)"/>
-        <Transition action="go fully booked" state="Deal Fully Booked" />
-    </State>
-
-
-
-    <State name="Deal Amended (Booking pending)">
-        <DynamicTransition action="Book">
-            <TargetStates>
-                <StaticState state="Deal Booked">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked STH Pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked Manual STH pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Fully Booked">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-            </TargetStates>
-        </DynamicTransition>
-
-        <Transition action="Approve" state="Deal amendment approved"/>
-    </State>
-
-    <State name="Client Agreed">
-        <DynamicTransition action="Book">
-            <TargetStates>
-                <StaticState state="Deal Booked STH Pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-            </TargetStates>
-        </DynamicTransition>
-    </State>
-
-     <State name="Somewhere">
-          <Transition action="sth" state="Somewhere Else"/>
-      </State>-->
-
     <BaseSate name="CancellableBaseState">
         <Transition action="Cancel" state="Cancelled"/>
     </BaseSate>
 
-    <State name="Quote Requested">
-        <Transition action="sth" state="Pricing Done"/>
-    </State>
     <State name="Pricing Done">
         <BaseStates>
             <BaseState name="CancellableBaseState"/>
         </BaseStates>
         <Transition action="sth" state="Deal Amended"/>
-        <Transition action="sth" state="Client Agreed"/>
     </State>
+</States>
+<!--
+
+    <BaseSate name="PassableBaseState">
+        <Transition action="Pass" state="Cancelled"/>
+    </BaseSate>
+
+    <State name="Quote Requested">
+        <Transition action="sth" state="Pricing Done"/>
+    </State>
+
+
     <State name="Deal Amended">
         <Transition action="sth" state="Client Agreed"/>
     </State>
@@ -120,79 +48,5 @@
     <State name="Deal Booked STH2 Pending">
         <Transition action="sth" state="Booked"/>
     </State>
-</States>
 
-
-
-
-<!--<State name="Start">
-<DynamicTransition action="action">
-    <TargetStates>
-        <StaticState state="A1">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-        <StaticState state="A2">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-    </TargetStates>
-</DynamicTransition>
-<Transition action="action" state="D1"/>
-</State>
-
-<State name="A1">
-<Transition action="action" state="B1"/>
-</State>
-<State name="A2">
-<Transition action="action" state="B2"/>
-</State>
-<State name="B1">
-<Transition action="action" state="C1"/>
-</State>
-<State name="B2">
-<Transition action="action" state="C2"/>
-</State>
-<State name="C1">
-<Transition action="action" state="Finish"/>
-</State>
-<State name="C2">
-<Transition action="action" state="Finish"/>
-</State>
-<State name="D1">
-<DynamicTransition action="action">
-    <TargetStates>
-        <StaticState state="A2">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-        <StaticState state="B2">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-    </TargetStates>
-</DynamicTransition>
-<Transition action="action" state="E1"/>
-<Transition action="action" state="F1"/>
-</State>
-
-<State name="E1">
-<DynamicTransition action="action">
-    <TargetStates>
-        <StaticState state="G1">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-        <StaticState state="G2">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-    </TargetStates>
-</DynamicTransition>
-<DynamicTransition action="action">
-    <TargetStates>
-        <StaticState state="H1">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-        <StaticState state="H2">
-            <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-        </StaticState>
-    </TargetStates>
-</DynamicTransition>
-<Transition action="action" state="F1"/>
-</State>-->
-
+-->
