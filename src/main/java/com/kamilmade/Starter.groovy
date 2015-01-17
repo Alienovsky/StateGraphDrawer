@@ -1,11 +1,13 @@
 package com.kamilmade
 
-import com.kamilmade.parser.XMLStatesParser
-import groovy.json.JsonOutput
+import com.kamilmade.parser2.StatesParserFromXML
+import com.kamilmade.pogo.Transition
+import com.kamilmade.pogo.WorkflowBaseState
+import com.kamilmade.pogo.WorkflowState
 
 class Starter {
     public static void main() {
-        // 1. Create an instance
+       /* // 1. Create an instance
         def parser = new XMLStatesParser();
 
         // 2. read the parser
@@ -13,8 +15,24 @@ class Starter {
         def myList = parser.parseGraphNodeXml(xml)
 
         String json = JsonOutput.toJson(myList);
-       // println JsonOutput.prettyPrint(json);
+       // println JsonOutput.prettyPrint(json);*/
 
+        def parser = new StatesParserFromXML();
+        def xml = parser.readXMLfromFile('/states.xml');
+        def baseStates = parser.parseXMLAndReturnWorkflowBaseStates(xml);
+        baseStates.each { baseState ->
+            ((WorkflowBaseState)baseState).getTranstions().each { transition ->
+                println(((WorkflowBaseState)baseState).getName() + " : " + ((Transition)transition))
+            }
+        }
+        def states = parser.parseXMLAndReturnWorkflowStates(xml);
+        states.each { state ->
+            ((WorkflowState)state).getTranstions().each { transition ->
+                println(((WorkflowState)state).getName() + " : " + ((Transition)transition))
+            }
+        }
+
+/*
         try {
             FileWriter fileWriter = new FileWriter("/test.json");
             fileWriter.write(JsonOutput.prettyPrint(json));
@@ -23,7 +41,7 @@ class Starter {
 
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
 
 
     }

@@ -1,4 +1,4 @@
-package com.kamilmade.pogo
+package com.kamilmade.pogo.obsolete
 
 import groovy.transform.ToString
 
@@ -7,7 +7,6 @@ class GraphNode {
     String source;
     String target;
     String type;
-    boolean isBaseState;
     def BaseStates = [];
 
 }

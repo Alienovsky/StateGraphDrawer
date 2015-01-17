@@ -1,6 +1,6 @@
-package com.kamilmade.parser
+package com.kamilmade.parser2.obsolete
 
-import com.kamilmade.pogo.GraphNode
+import com.kamilmade.pogo.obsolete.GraphNode
 
 
 public class XMLStatesParser {
