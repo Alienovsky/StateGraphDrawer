@@ -716,7 +716,11 @@
       <created>1424022833020</created>
       <updated>1424022833020</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="updating project to date">
+      <created>1424022870751</created>
+      <updated>1424022870751</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <option name="createChangelist" value="false" />
     <option name="createBranch" value="false" />
     <servers />
