@@ -1,5 +1,6 @@
 package com.kamilmade.parser
 
+import com.kamilmade.parser.obsolete.XMLStatesParser
 import spock.lang.Shared
 import spock.lang.Specification
 

@@ -1,6 +1,6 @@
 package com.kamilmade.parser
 
-import com.kamilmade.pogo.GraphNode
+import com.kamilmade.parser.obsolete.XMLStatesParser
 import spock.lang.Shared
 import spock.lang.Specification
 

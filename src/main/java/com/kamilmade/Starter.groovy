@@ -1,9 +1,12 @@
 package com.kamilmade
 
-import com.kamilmade.parser2.StatesParserFromXML
+import com.kamilmade.parser.StatesParserFromXML
+import com.kamilmade.pogo.State
 import com.kamilmade.pogo.Transition
 import com.kamilmade.pogo.WorkflowBaseState
 import com.kamilmade.pogo.WorkflowState
+
+import java.util.function.Consumer
 
 class Starter {
     public static void main() {
@@ -20,17 +23,22 @@ class Starter {
         def parser = new StatesParserFromXML();
         def xml = parser.readXMLfromFile('/states.xml');
         def baseStates = parser.parseXMLAndReturnWorkflowBaseStates(xml);
+
         baseStates.each { baseState ->
             ((WorkflowBaseState)baseState).getTranstions().each { transition ->
                 println(((WorkflowBaseState)baseState).getName() + " : " + ((Transition)transition))
             }
         }
+
         def states = parser.parseXMLAndReturnWorkflowStates(xml);
+
         states.each { state ->
             ((WorkflowState)state).getTranstions().each { transition ->
                 println(((WorkflowState)state).getName() + " : " + ((Transition)transition))
             }
         }
+
+
 
 /*
         try {
@@ -44,5 +52,9 @@ class Starter {
         }*/
 
 
+    }
+
+    public List<Transition> giveTransitions(String name, List<WorkflowBaseState> workflowBaseStates){
+        workflowBaseStates.find
     }
 }

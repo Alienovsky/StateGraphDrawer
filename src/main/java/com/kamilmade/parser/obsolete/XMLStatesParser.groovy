@@ -1,4 +1,4 @@
-package com.kamilmade.parser2.obsolete
+package com.kamilmade.parser.obsolete
 
 import com.kamilmade.pogo.obsolete.GraphNode
 

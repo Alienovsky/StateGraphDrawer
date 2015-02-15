@@ -1,4 +1,4 @@
-package com.kamilmade.parser2
+package com.kamilmade.parser
 
 import com.kamilmade.pogo.Transition
 import com.kamilmade.pogo.WorkflowBaseState
@@ -44,6 +44,7 @@ class StatesParserFromXML {
                         targetStatesNode.value().each { staticStateNode ->
                             Transition transition = new Transition();
                             transition.setTarget(staticStateNode.'@state');
+                            transition.setAction(transitionNode.'@action');
                             transition.setType("resolved");
                             workflowState.getTranstions().add(transition);
                         }

@@ -10,6 +10,24 @@
         </BaseStates>
         <Transition action="sth" state="Deal Amended"/>
     </State>
+    <State name="Client Agreed">
+        <BaseStates>
+            <BaseState name="CancellableBaseState"/>
+        </BaseStates>
+        <Transition action="sth" state="Booked"/>
+        <DynamicTransition action="Book">
+            <TargetStates>
+                <StaticState state="Deal Booked STH Pending">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+                <StaticState state="Deal Booked STH2 Pending">
+                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
+                </StaticState>
+            </TargetStates>
+        </DynamicTransition>
+        <Transition action="sth" state="Deal Amended"/>
+    </State>
+
 </States>
 <!--
 
