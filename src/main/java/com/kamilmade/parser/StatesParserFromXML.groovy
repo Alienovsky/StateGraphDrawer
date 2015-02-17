@@ -12,8 +12,8 @@ class StatesParserFromXML {
         return getClass().getResource( fileName ).text
     }
 
-    public List parseXMLAndReturnWorkflowBaseStates(xml){
-        def ArrayList workflowBaseStates = [];
+    public List<WorkflowBaseState> parseXMLAndReturnWorkflowBaseStates(xml){
+        def workflowBaseStates = [];
         def states = new XmlParser().parseText(xml);
         states.BaseSate.each { baseStateNode ->
             WorkflowBaseState workflowBaseState = new WorkflowBaseState();
@@ -32,7 +32,7 @@ class StatesParserFromXML {
         return workflowBaseStates;
     }
 
-    public List parseXMLAndReturnWorkflowStates(xml){
+    public List<WorkflowState> parseXMLAndReturnWorkflowStates(xml){
         def workflowStates = [];
         def states = new XmlParser().parseText(xml);
         states.State.each { state ->
@@ -59,7 +59,7 @@ class StatesParserFromXML {
                 }
                 else if(transitionNode.name()=="BaseStates"){
                     transitionNode.value().each { baseStateNode ->
-                        workflowState.getBaseStates().add(baseStateNode.'@name');
+                        workflowState.getBaseStateNames().add(baseStateNode.'@name');
                     }
                 }
             }

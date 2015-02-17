@@ -5,5 +5,5 @@ import groovy.transform.ToString
 @ToString
 abstract class State {
     def String name;
-    def transtions = [];
+    List<Transition> transtions = [];
 }
