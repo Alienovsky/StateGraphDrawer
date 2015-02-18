@@ -13,8 +13,10 @@ class NodeCreator {
         List<MyNode> listaNode = new ArrayList<>();
         for(WorkflowState ws : workflowStates){
             List<Transition> listaTrans = ws.getTranstions();
-            for(String wbs : ws.getBaseStateNames()){
-                listaTrans.addAll(getTransitions(wbs,workflowBaseStates));
+            if(!ws.getBaseStateNames().isEmpty()) {
+                for (String wbs : ws.getBaseStateNames()) {
+                    listaTrans.addAll(getTransitions(wbs, workflowBaseStates));
+                }
             }
             for(Transition transition : listaTrans){
                 MyNode node = new MyNode();

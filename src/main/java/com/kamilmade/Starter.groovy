@@ -3,17 +3,11 @@ package com.kamilmade
 import com.kamilmade.parser.StatesParserFromXML
 import com.kamilmade.pogo.MyNode
 import com.kamilmade.service.NodeCreator
+import groovy.json.JsonOutput
 
 class Starter {
     public static void main() {
-        /* // 1. Create an instance
-        def parser = new XMLStatesParser();
 
-        // 2. read the parser
-        def xml = parser.readXML('/states.xml');
-        def myList = parser.parseGraphNodeXml(xml)
-
-        String json = JsonOutput.toJson(myList);
        // println JsonOutput.prettyPrint(json);*/
         def parser = new StatesParserFromXML();
         def xml = parser.readXMLfromFile('/states.xml');
@@ -23,7 +17,8 @@ class Starter {
         List<MyNode> lista;
         lista = nodeCreator.createNodesFromWorkflowStatesAndWorkflowBaseStates(states,baseStates);
         lista.forEach{it -> println(it.toString())}
-        /*
+        String json = JsonOutput.toJson(lista);
+
          try {
              FileWriter fileWriter = new FileWriter("/test.json");
              fileWriter.write(JsonOutput.prettyPrint(json));
@@ -32,8 +27,6 @@ class Starter {
 
          } catch (IOException e) {
              e.printStackTrace();
-         }*/
+         }
     }
-
-
 }

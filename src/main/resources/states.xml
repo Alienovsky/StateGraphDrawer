@@ -1,12 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <States>
+
+
     <BaseSate name="CancellableBaseState">
         <Transition action="Cancel" state="Cancelled"/>
     </BaseSate>
+    <BaseSate name="PassableBaseState">
+        <Transition action="Pass" state="Passed"/>
+    </BaseSate>
+
+
 
     <State name="Pricing Done">
         <BaseStates>
             <BaseState name="CancellableBaseState"/>
+            <BaseState name="PassableBaseState"/>
         </BaseStates>
         <Transition action="sth" state="Deal Amended"/>
     </State>
@@ -29,14 +37,10 @@
         <Transition action="sth" state="Deal Amended"/>
     </State>
 
-</States>
-<!--
-
-    <BaseSate name="PassableBaseState">
-        <Transition action="Pass" state="Cancelled"/>
-    </BaseSate>
-
     <State name="Quote Requested">
+        <BaseStates>
+            <BaseState name="PassableBaseState"/>
+        </BaseStates>
         <Transition action="sth" state="Pricing Done"/>
     </State>
 
@@ -44,28 +48,14 @@
     <State name="Deal Amended">
         <Transition action="sth" state="Client Agreed"/>
     </State>
-    <State name="Client Agreed">
-        <BaseStates>
-            <BaseState name="CancellableBaseState"/>
-        </BaseStates>
-        <Transition action="sth" state="Booked"/>
-        <DynamicTransition action="Book">
-            <TargetStates>
-                <StaticState state="Deal Booked STH Pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-                <StaticState state="Deal Booked STH2 Pending">
-                    <BooleanCondition providerRef="SomeProvider" value="boolean"/>
-                </StaticState>
-            </TargetStates>
-        </DynamicTransition>
-        <Transition action="sth" state="Deal Amended"/>
-    </State>
+
     <State name="Deal Booked STH Pending">
         <Transition action="sth" state="Booked"/>
     </State>
+
     <State name="Deal Booked STH2 Pending">
         <Transition action="sth" state="Booked"/>
     </State>
 
--->
+
+</States>
