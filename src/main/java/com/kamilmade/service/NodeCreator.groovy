@@ -31,7 +31,7 @@ class NodeCreator {
     }
 
     private List<Transition> getTransitions(String baseStateName, List<WorkflowBaseState> baseStates){
-        WorkflowBaseState workflowBaseState = baseStates.find { it -> it.name = baseStateName};
+        WorkflowBaseState workflowBaseState = baseStates.find { it -> it.name == baseStateName};
         return workflowBaseState.transtions;
     }
 }
